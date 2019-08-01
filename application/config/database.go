@@ -25,6 +25,5 @@ func Connect() {
 	if err != nil {
 		log.Fatalf("Database Not Connected : %s", err)
 	}
-	// defer result.Close()
 	DB = result
 }
