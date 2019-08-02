@@ -13,20 +13,21 @@ import (
 )
 
 var (
-	cfgFile string
+	cfgFile string // cek for file toml or viper save in this variable
 )
 
+// rootCmd call in this file in function execute
 var rootCmd = &cobra.Command{
 	Use:   "GO-Graphql",
 	Short: "Tutorial golang with graphql",
 	Long:  `tutorial golang with graphql and some plugins`,
 	Run: func(cmd *cobra.Command, args []string) {
-		log.Println("go-graphql is avaible running")
 		routes.Route()
 	},
 }
 
 func init() {
+	// call first time for this repo declare viper, connect DB and splash
 	cobra.OnInitialize(splash, InitViper, conf.Connect)
 }
 
@@ -39,10 +40,10 @@ ________ ________              __________________    _____ __________  ___ ___ _
 \______  /\_______  /          \______  /|____|_  /\____|__  /____|    \___|_  /\_____\ \_/_______ \
 		\/         \/                  \/        \/         \/                \/        \__>       \/
 	`)
-	// http://patorjk.com/software/taag/#p=display&f=Graffiti
+	// this splash i get in website : http://patorjk.com/software/taag/#p=display&f=Graffiti
 }
 
-// InitViper from file toml
+// this function call in init() and this file
 func InitViper() {
 	viper.SetConfigFile("toml")
 	if cfgFile != "" {
@@ -58,7 +59,7 @@ func InitViper() {
 	log.Println("Using Config File: ", viper.ConfigFileUsed())
 }
 
-// Execute from Cobra Firsttime
+// Execute function call in firsttime in main.go
 func Execute() {
 	err := rootCmd.Execute()
 	utils.FailError(err, "Error Execute RootCMD")
