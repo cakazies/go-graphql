@@ -3,7 +3,8 @@ package config
 import (
 	"database/sql"
 	"fmt"
-	"log"
+
+	"github.com/local/go-graphql/utils"
 
 	_ "github.com/lib/pq"
 	"github.com/spf13/viper"
@@ -22,9 +23,7 @@ func Connect() {
 
 	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 	result, err := sql.Open("postgres", psqlInfo)
-	if err != nil {
-		log.Fatalf("Database Not Connected : %s", err)
-	}
-	// defer result.Close()
+	utils.PanicError(err, "Database Not Connected")
+
 	DB = result
 }

@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "94b8989e-2029-4d9d-97f1-937d4dfe0169",
+		"name": "go-graphql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all Product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8088/product?Query={Products(ID_PRO:%22%22){ID_PRO,PRO_NAME,PRO_IMAGE,QTE_IN_STOCK}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "Query",
+							"value": "{Products(ID_PRO:%22%22){ID_PRO,PRO_NAME,PRO_IMAGE,QTE_IN_STOCK}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/users?Query={Users(id:%22%22){id,name}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "Query",
+							"value": "{Users(id:%22%22){id,name}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"query\": \"{users(name:\\\"kevin\\\"){id, name, age}}\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8088/product?Query=mutation+M{ProductTypes:CreateProducts(ID_PRO:%22CICINsadG%22,PRO_NAME:%22SUMBAWA%22,QTE_IN_STOCK:123,PRO_IMAGE:%22POER%22){PRO_NAME}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"product"
+					],
+					"query": [
+						{
+							"key": "Query",
+							"value": "mutation+M{ProductTypes:CreateProducts(ID_PRO:%22CICINsadG%22,PRO_NAME:%22SUMBAWA%22,QTE_IN_STOCK:123,PRO_IMAGE:%22POER%22){PRO_NAME}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/users?Query=mutation{UsersTypes:CreateUser(name:%22cobalah mengerti%22,age:55,profession:%22Gurus%22,friendly:%22true%22){name}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "Query",
+							"value": "mutation{UsersTypes:CreateUser(name:%22cobalah mengerti%22,age:55,profession:%22Gurus%22,friendly:%22true%22){name}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

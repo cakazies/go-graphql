@@ -17,11 +17,11 @@ var (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "GO-POSTGRESQL",
-	Short: "Tutorial golang in postgresql",
-	Long:  `tutorial golang in postgresql and some plugins`,
+	Use:   "GO-Graphql",
+	Short: "Tutorial golang with graphql",
+	Long:  `tutorial golang with graphql and some plugins`,
 	Run: func(cmd *cobra.Command, args []string) {
-		log.Println("go-postgre is avaible running")
+		log.Println("go-graphql is avaible running")
 		routes.Route()
 	},
 }
@@ -32,9 +32,14 @@ func init() {
 
 func splash() {
 	fmt.Println(`
-	GO Graphql
+________ ________              __________________    _____ __________  ___ ___ ________  .____     
+/  _____/ \_____  \            /  _____/\______   \  /  _  \\______   \/   |   \\_____  \ |    |    
+/   \  ___  /   |   \   ______ /   \  ___ |       _/ /  /_\  \|     ___/    ~    \/  / \  \|    |    
+\    \_\  \/    |    \ /_____/ \    \_\  \|    |   \/    |    \    |   \    Y    /   \_/.  \    |___ 
+\______  /\_______  /          \______  /|____|_  /\____|__  /____|    \___|_  /\_____\ \_/_______ \
+		\/         \/                  \/        \/         \/                \/        \__>       \/
 	`)
-
+	// http://patorjk.com/software/taag/#p=display&f=Graffiti
 }
 
 // InitViper from file toml
