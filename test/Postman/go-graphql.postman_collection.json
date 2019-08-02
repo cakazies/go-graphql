@@ -6,135 +6,101 @@
 	},
 	"item": [
 		{
-			"name": "Get all Product",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "",
-						"variables": ""
-					}
+			"name": "users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users?Query={Users(id:%22%22){id,name,age}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "Query",
+									"value": "{Users(id:%22%22){id,name,age}}"
+								}
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8088/product?Query={Products(ID_PRO:%22%22){ID_PRO,PRO_NAME,PRO_IMAGE,QTE_IN_STOCK}}",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"product"
-					],
-					"query": [
-						{
-							"key": "Query",
-							"value": "{Products(ID_PRO:%22%22){ID_PRO,PRO_NAME,PRO_IMAGE,QTE_IN_STOCK}}"
+				{
+					"name": "Update Users ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users?Query=mutation{UsersTypes:CreateUser(id:12,name:%22cobalahmengertih%22,age:88,profession:%22Gurus%22,friendly:%22true%22){name}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "Query",
+									"value": "mutation{UsersTypes:CreateUser(id:12,name:%22cobalahmengertih%22,age:88,profession:%22Gurus%22,friendly:%22true%22){name}}"
+								}
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Users",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/users?Query={Users(id:%22%22){id,name}}",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"users"
-					],
-					"query": [
-						{
-							"key": "Query",
-							"value": "{Users(id:%22%22){id,name}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Product",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n \"query\": \"{users(name:\\\"kevin\\\"){id, name, age}}\"\r\n}"
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8088/product?Query=mutation+M{ProductTypes:CreateProducts(ID_PRO:%22CICINsadG%22,PRO_NAME:%22SUMBAWA%22,QTE_IN_STOCK:123,PRO_IMAGE:%22POER%22){PRO_NAME}}",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"product"
-					],
-					"query": [
-						{
-							"key": "Query",
-							"value": "mutation+M{ProductTypes:CreateProducts(ID_PRO:%22CICINsadG%22,PRO_NAME:%22SUMBAWA%22,QTE_IN_STOCK:123,PRO_IMAGE:%22POER%22){PRO_NAME}}"
+				{
+					"name": "Create Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users?Query=mutation{UsersTypes:CreateUser(name:%22cobalahmengertih%22,age:88,profession:%22Gurus%22,friendly:%22true%22){name}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "Query",
+									"value": "mutation{UsersTypes:CreateUser(name:%22cobalahmengertih%22,age:88,profession:%22Gurus%22,friendly:%22true%22){name}}"
+								}
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Users",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8088/users?Query=mutation{UsersTypes:CreateUser(name:%22cobalah mengerti%22,age:55,profession:%22Gurus%22,friendly:%22true%22){name}}",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8088",
-					"path": [
-						"users"
-					],
-					"query": [
-						{
-							"key": "Query",
-							"value": "mutation{UsersTypes:CreateUser(name:%22cobalah mengerti%22,age:55,profession:%22Gurus%22,friendly:%22true%22){name}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users?Query=mutation{UsersTypes:CreateUser(id:9,name:%22cobalahmengertih%22,age:88,profession:%22Gurus%22,friendly:%22true%22,deleted_at:%222019-08-02 14:32:46%22){name}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "Query",
+									"value": "mutation{UsersTypes:CreateUser(id:9,name:%22cobalahmengertih%22,age:88,profession:%22Gurus%22,friendly:%22true%22,deleted_at:%222019-08-02 14:32:46%22){name}}"
+								}
+							]
 						}
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
