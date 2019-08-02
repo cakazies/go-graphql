@@ -52,30 +52,6 @@ var UsersMutation = graphql.NewObject(graphql.ObjectConfig{
 		},
 	},
 })
-var UsersMutation2 = graphql.NewObject(graphql.ObjectConfig{
-	Name: "UsersMutation2",
-	Fields: graphql.Fields{
-		"CreateUser2": &graphql.Field{
-			Type: graphql.NewList(types.UsersTypes),
-			Args: graphql.FieldConfigArgument{
-				"name": &graphql.ArgumentConfig{
-					Type: graphql.NewNonNull(graphql.String),
-				},
-				"age": &graphql.ArgumentConfig{
-					Type: graphql.NewNonNull(graphql.Int),
-				},
-				"profession": &graphql.ArgumentConfig{
-					Type: graphql.NewNonNull(graphql.String),
-				},
-				"friendly": &graphql.ArgumentConfig{
-					Type: graphql.NewNonNull(graphql.String),
-				},
-			},
-			Resolve: UpdateUsers,
-		},
-	},
-})
-
 var UserUpdate = graphql.NewObject(graphql.ObjectConfig{
 	Name: "UserUpdate",
 	Fields: graphql.Fields{

@@ -2,10 +2,10 @@ package mutation
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/graphql-go/graphql"
 	conf "github.com/local/go-graphql/application/config"
+	"github.com/local/go-graphql/utils"
 )
 
 func CreateProductMutation(param graphql.ResolveParams) (interface{}, error) {
@@ -15,9 +15,7 @@ func CreateProductMutation(param graphql.ResolveParams) (interface{}, error) {
 	image := param.Args["PRO_IMAGE"].(string)
 	sql := fmt.Sprintf("INSERT INTO products values ('%s','%s',%v,'%s')", idpro, name, qty, image)
 	_, err := conf.DB.Query(sql)
-	if err != nil {
-		panic(err.Error())
-	}
+	utils.PanicError(err, "Failed Query Insert Product")
 	return nil, err
 }
 
@@ -29,9 +27,7 @@ func CreateUsers(params graphql.ResolveParams) (interface{}, error) {
 	// sql := fmt.Sprintf("UPDATE users set name='%s', age=%v, profession='%s', friendly='%s' WHERE id = 1 ;", name, age, profession, friendly)
 	sql := fmt.Sprintf("INSERT INTO users (name,age,profession,friendly) values ('%s',%v,'%s',%v)", name, age, profession, friendly)
 	_, err := conf.DB.Query(sql)
-	if err != nil {
-		panic(err.Error())
-	}
+	utils.PanicError(err, "Failed query insert users")
 	return nil, err
 }
 
@@ -42,10 +38,7 @@ func UpdateUsers(params graphql.ResolveParams) (interface{}, error) {
 	profession := params.Args["profession"]
 	friendly := params.Args["friendly"]
 	sql := fmt.Sprintf("UPDATE users set name='%s', age=%v, profession='%s', friendly='%s' WHERE id = %s ;", name, age, profession, friendly, "1")
-	log.Println(sql)
 	_, err := conf.DB.Query(sql)
-	if err != nil {
-		panic(err.Error())
-	}
+	utils.PanicError(err, "Failed query update users")
 	return nil, err
 }

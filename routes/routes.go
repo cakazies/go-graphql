@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/local/go-graphql/utils"
+
 	"github.com/graphql-go/graphql"
 	"github.com/local/go-graphql/application/mutation"
 	"github.com/local/go-graphql/application/query"
@@ -24,9 +26,7 @@ func getProduct(w http.ResponseWriter, r *http.Request) {
 		Query:    query.RootQuery,
 		Mutation: mutation.MutationProd,
 	})
-	if err != nil {
-		panic(err.Error())
-	}
+	utils.PanicError(err, "Failed New Schema")
 
 	result := graphql.Do(graphql.Params{
 		Schema:        sch,
@@ -45,9 +45,8 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 		Query:    query.QueryUsers,
 		Mutation: mutation.UsersMutation,
 	})
-	if err != nil {
-		panic(err.Error())
-	}
+	utils.PanicError(err, "Failed New Schema")
+
 	result := graphql.Do(graphql.Params{
 		Schema:        sch,
 		RequestString: params,
