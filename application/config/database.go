@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 
+	"github.com/cakazies/go-graphql/utils"
 	_ "github.com/lib/pq"
-	"github.com/local/go-graphql/utils"
 	"github.com/spf13/viper"
 )
 

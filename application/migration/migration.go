@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"time"
 
-	cf "github.com/local/go-graphql/application/config"
-	"github.com/local/go-graphql/cmd"
-	"github.com/local/go-graphql/utils"
+	cf "github.com/cakazies/go-graphql/application/config"
+	"github.com/cakazies/go-graphql/cmd"
+	"github.com/cakazies/go-graphql/utils"
 )
 
 // go run application/migration/migration.go

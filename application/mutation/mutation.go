@@ -1,8 +1,8 @@
 package mutation
 
 import (
+	"github.com/cakazies/go-graphql/application/types"
 	"github.com/graphql-go/graphql"
-	"github.com/local/go-graphql/application/types"
 )
 
 var UsersMutation = graphql.NewObject(graphql.ObjectConfig{

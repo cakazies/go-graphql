@@ -1,6 +1,6 @@
 package main
 
-import "github.com/local/go-graphql/cmd"
+import "github.com/cakazies/go-graphql/cmd"
 
 func main() {
 	// call repo cobra in directory cmd func execute
