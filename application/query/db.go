@@ -1,11 +1,11 @@
 package query
 
 import (
-	"github.com/local/go-graphql/utils"
+	"github.com/cakazies/go-graphql/utils"
 
 	"github.com/graphql-go/graphql"
-	conf "github.com/local/go-graphql/application/config"
-	"github.com/local/go-graphql/application/types"
+	conf "github.com/cakazies/go-graphql/application/config"
+	"github.com/cakazies/go-graphql/application/types"
 )
 
 func UsersResolve(params graphql.ResolveParams) (interface{}, error) {

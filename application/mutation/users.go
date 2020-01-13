@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/graphql-go/graphql"
-	conf "github.com/local/go-graphql/application/config"
-	"github.com/local/go-graphql/utils"
+	conf "github.com/cakazies/go-graphql/application/config"
+	"github.com/cakazies/go-graphql/utils"
 )
 
 func UsersRevolver(params graphql.ResolveParams) (interface{}, error) {

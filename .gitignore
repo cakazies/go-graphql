@@ -9,4 +9,4 @@
 vendor/
 
 # configs file 
-config/config.toml
+./config/config.toml

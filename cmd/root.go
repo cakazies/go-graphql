@@ -6,9 +6,9 @@ import (
 
 	"github.com/spf13/viper"
 
-	conf "github.com/local/go-graphql/application/config"
-	"github.com/local/go-graphql/routes"
-	"github.com/local/go-graphql/utils"
+	conf "github.com/cakazies/go-graphql/application/config"
+	"github.com/cakazies/go-graphql/routes"
+	"github.com/cakazies/go-graphql/utils"
 	"github.com/spf13/cobra"
 )
 
